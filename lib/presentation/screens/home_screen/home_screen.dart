@@ -15,11 +15,20 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  GlobalKey<TasksTabState> tasksTabKey = GlobalKey();
   int currentIndex =0;
   List<Widget> tabs=[
-    TasksTab(),
-    SettingsTab(),
+
   ];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    tabs=[TasksTab(key:  tasksTabKey,),
+    SettingsTab()
+    ];
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
   Widget buildFab () => FloatingActionButton(shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(30), side:  BorderSide(color: ColorsManger.white)),
-    onPressed: () {
-    AddTaskBottomSheet.show(context);
+    onPressed: () async {
+    await AddTaskBottomSheet.show(context);
+    tasksTabKey.currentState?.getTodosFromFireStore();
   },child: Icon(Icons.add),);
   Widget buildBottomNavBar()=> BottomAppBar(
     notchMargin: 20,

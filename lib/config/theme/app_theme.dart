@@ -9,7 +9,7 @@ class AppTheme{
       backgroundColor: ColorsManger.blue,
       titleTextStyle: LightAppStyles.appbar,
     ),
-    textTheme: TextTheme(displayLarge: LightAppStyles.TaskThemeLabel,labelMedium: LightAppStyles.themeLabel,labelSmall: LightAppStyles.selectedThemeLabel,labelLarge: LightAppStyles.AddTaskThemeLabel),
+    textTheme: TextTheme(displayLarge: LightAppStyles.taskThemeLabel,labelMedium: LightAppStyles.themeLabel,labelSmall: LightAppStyles.selectedThemeLabel,labelLarge: LightAppStyles.addTaskThemeLabel),
     scaffoldBackgroundColor: ColorsManger.scafold,
     bottomNavigationBarTheme:const BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
@@ -45,7 +45,8 @@ bottomAppBarTheme: const BottomAppBarTheme(
     datePickerTheme: DatePickerThemeData(
       headerForegroundColor: ColorsManger.blue,
 
-    )
+    ),
+      cardColor: ColorsManger.white
   );
   static ThemeData dark = ThemeData();
 }
